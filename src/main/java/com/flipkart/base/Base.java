@@ -52,7 +52,7 @@ public abstract class Base {
     public abstract void performSearch(String searchTerm);
 
     /**
-     * Click on element with wait
+     * Click on an element with wait
      */
     @Step("Click on element: {locator}")
     protected void clickElement(By locator) {
