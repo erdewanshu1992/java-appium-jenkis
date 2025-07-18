@@ -20,13 +20,26 @@ public class MobileBrowserTests {
     public static void main(String[] args) throws MalformedURLException, InterruptedException {
         WebDriver driver;
 
-            UiAutomator2Options options = new UiAutomator2Options();
-            options.setCapability("chromedriverExecutable", "/Users/dewanshun/Drivers/chromedriver");
-            options.setCapability("platformName", "Android");
-            options.setCapability("browserName", "Chrome");
-            options.setCapability("automationName", "UiAutomator2");
-            driver = new AndroidDriver(new URL("http://127.0.0.1:4723/"), options);
-            System.out.println("✅ Started session using UiAutomator2Options");
+             //Real device setup
+//            UiAutomator2Options options = new UiAutomator2Options();
+//            options.setCapability("chromedriverExecutable", "/Users/dewanshun/Drivers/chromedriver");
+//            options.setCapability("platformName", "Android");
+//            options.setCapability("browserName", "Chrome");
+//            options.setCapability("automationName", "UiAutomator2");
+//            driver = new AndroidDriver(new URL("http://127.0.0.1:4723/"), options);
+//            System.out.println("✅ Started session using UiAutomator2Options");
+
+        // Android emulator
+        UiAutomator2Options options = new UiAutomator2Options();
+        options.setPlatformName("Android");
+        options.setDeviceName("emulator-5554");
+        options.setAutomationName("UiAutomator2");
+        options.setCapability("browserName", "Chrome");
+        options.setChromedriverExecutable("/Users/dewanshun/Drivers/chromedriver");
+
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/"), options);
+        System.out.println("✅ Chrome browser launched on Android Emulator");
+
 
         driver.get("https://www.google.com");
         System.out.println("🌐 Title: " + driver.getTitle());
@@ -66,7 +79,7 @@ public class MobileBrowserTests {
         Thread.sleep(3000);
 
         driver.findElement(By.xpath("//div[contains(text(),  'CONTINUE')]")).click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
 
          // ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
          // driver.navigate().back();
@@ -75,11 +88,11 @@ public class MobileBrowserTests {
         // serchItems.sendKeys("Atta");
         // Thread.sleep(3000);
 
-        for (int i = 1; i <= 1; i++) {
-            js.executeScript("window.scrollBy({ top: 1500, left: 0, behavior: 'smooth' });");
-            Thread.sleep(2000);
-            System.out.println("✅ Smooth scroll #" + i + " done on mobile Chrome");
-        }
+//        for (int i = 1; i <= 1; i++) {
+//            js.executeScript("window.scrollBy({ top: 1500, left: 0, behavior: 'smooth' });");
+//            Thread.sleep(2000);
+//            System.out.println("✅ Smooth scroll #" + i + " done on mobile Chrome");
+//        }
 
         driver.findElement(By.xpath("//img[contains(@src, 'b2e8b172-0af8-43c4-9251-67c6f2442d83')]")).click();
         Thread.sleep(3000);

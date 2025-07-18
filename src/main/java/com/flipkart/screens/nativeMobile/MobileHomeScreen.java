@@ -47,29 +47,35 @@ public class MobileHomeScreen extends Base implements IMobileHomeScreen {
     @Override
     @Step("Wait for home page to load")
     public void waitForPageToLoad() {
-        waitUtils.waitForElementToBeVisible(brandMallToggle);
-        waitUtils.waitForElementToBeVisible(categoriesTab);
+        // waitUtils.waitForElementToBeVisible(brandMallToggle);
+        // waitUtils.waitForElementToBeVisible(categoriesTab);
 
         try {
+            waitUtils.waitForElementToBeVisible(brandMallToggle);
+            waitUtils.waitForElementToBeVisible(categoriesTab);
             waitUtils.waitForElementToBeVisible(searchBoxHome);
         } catch (Exception e) {
             logger.error(" searchBox not visible within timeout: {}", e.getMessage());
         }
     }
 
-
     @Override
     @Step("Verify home page is loaded")
     public boolean isPageLoaded() {
-        boolean brandMall = isElementDisplayed(brandMallToggle);
-        boolean search = isElementDisplayed(searchBoxHome);
-        boolean category = isElementDisplayed(categoriesTab);
+        try {
+            boolean brandMall = isElementDisplayed(brandMallToggle);
+            boolean search = isElementDisplayed(searchBoxHome);
+            boolean category = isElementDisplayed(categoriesTab);
 
-        logger.info("BrandMall: {}, SearchBox: {}, CategoriesTab: {}", brandMall, search, category);
+            logger.info("BrandMall: {}, SearchBox: {}, CategoriesTab: {}", brandMall, search, category);
 
-        // return brandMall && search && category;
-        return brandMall && category;
+            return brandMall && category;
+        } catch (Exception e) {
+            logger.error("❌ Exception while verifying home page load: {}", e.getMessage());
+            return false;
+        }
     }
+
 
     @Override
     @Step("Search for '{searchTerm}' in mobile app")
