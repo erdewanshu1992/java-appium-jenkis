@@ -3,8 +3,7 @@ package com.flipkart.tests.desktop;
 import com.flipkart.base.BaseTest;
 import com.flipkart.screens.desktop.DesktopHomePage;
 import com.flipkart.utils.PlatformManager;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -32,6 +31,11 @@ public class FlipkartDesktopTests extends BaseTest {
         }
     }
 
+    @Epic("Search")
+    @Feature("Search functionality")
+    @Story("Search items")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify user can login with valid credentials")
     @Test(description = "Verify search functionality on desktop")
     public void testDesktopSearch() {
         // Verify we're running in desktop mode

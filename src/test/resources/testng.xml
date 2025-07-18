@@ -8,6 +8,7 @@
     <listeners>
         <listener class-name="com.flipkart.listeners.TestListener"/>
         <listener class-name="com.flipkart.listeners.RetryListener"/>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
     </listeners>
     
     <!-- Native Mobile App Tests -->

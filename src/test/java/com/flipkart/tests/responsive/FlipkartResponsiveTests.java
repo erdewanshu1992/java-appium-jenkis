@@ -3,8 +3,7 @@ package com.flipkart.tests.responsive;
 import com.flipkart.base.BaseTest;
 import com.flipkart.listeners.TestListener;
 import com.flipkart.screens.responsive.ResponsiveHomeScreen;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -29,6 +28,11 @@ public class FlipkartResponsiveTests extends BaseTest {
         }
     }
 
+    @Epic("Scroll")
+    @Feature("Scroll functionality")
+    @Story("Scroll home")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify user can login with valid credentials")
     @Test(description = "Verify search functionality in responsive view")
     public void testResponsiveSearch() {
         // Initialize screen objects

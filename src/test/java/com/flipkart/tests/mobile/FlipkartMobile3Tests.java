@@ -1,6 +1,7 @@
 package com.flipkart.tests.mobile;
 
 import io.appium.java_client.android.options.UiAutomator2Options;
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
@@ -32,6 +33,11 @@ public class FlipkartMobile3Tests {
         System.out.println("✅ Driver started successfully.");
     }
 
+    @Epic("Login")
+    @Feature("Login functionality")
+    @Story("Valid login")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify user can login with valid credentials")
     @Test(enabled = false)
     public void testW3CTap() {
         WebElement elementToTap = driver.findElement(By.id("com.flipkart.android:id/custom_back_icon"));
@@ -39,6 +45,11 @@ public class FlipkartMobile3Tests {
         tapElement(elementToTap, driver);
     }
 
+    @Epic("Scroll")
+    @Feature("Scroll functionality")
+    @Story("Scroll home")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify user can login with valid credentials")
     @Test
     public void testContinuousScroll() {
         Dimension size = driver.manage().window().getSize();
