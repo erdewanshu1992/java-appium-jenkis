@@ -64,5 +64,6 @@ public class FlipkartDesktopTests extends BaseTest {
         String currentUrl = driverManager.getDriver().getCurrentUrl();
         Assert.assertTrue(currentUrl.contains("search") || currentUrl.contains("laptop"), 
             "Should navigate to search results page, current URL: " + currentUrl);
+
     }
 }
