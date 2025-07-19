@@ -35,6 +35,7 @@
         <classes>
 <!--            <class name="com.flipkart.tests.desktop.BrowserContextTest"/>-->
             <class name="com.flipkart.tests.desktop.FlipkartDesktopTests"/>
+            <class name="com.flipkart.tests.desktop.SearchTest"/>
 <!--            <class name="com.flipkart.tests.desktop.GoogleSearchTest"/>-->
         </classes>
     </test>

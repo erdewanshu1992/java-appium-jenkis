@@ -4,9 +4,14 @@ import com.flipkart.base.BaseTest;
 import com.flipkart.listeners.TestListener;
 import com.flipkart.screens.responsive.ResponsiveHomeScreen;
 import io.qameta.allure.*;
+import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Test class for Flipkart responsive web application
@@ -15,9 +20,23 @@ import org.testng.annotations.Test;
 @Feature("Mobile Emulation Testing")
 @Listeners(TestListener.class)
 public class FlipkartResponsiveTests extends BaseTest {
+    private static final Logger logger = LogManager.getLogger(FlipkartResponsiveTests.class);
+
 
     private ResponsiveHomeScreen homeScreen;
 
+    @BeforeSuite
+    public void cleanLogsFolder() {
+        try {
+            FileUtils.deleteDirectory(new File("logs"));
+            new File("logs").mkdirs();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @BeforeMethod
     /**
      * Initialize screen objects
      */
@@ -25,6 +44,7 @@ public class FlipkartResponsiveTests extends BaseTest {
         if (homeScreen == null) {
             homeScreen = new ResponsiveHomeScreen(driverManager.getDriver());
             logger.info("Responsive screen objects initialized");
+            logger.info("Starting automation test...");
         }
     }
 
